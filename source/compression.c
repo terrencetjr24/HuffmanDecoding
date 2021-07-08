@@ -88,12 +88,6 @@ char * compress(FILE* inputF, encodeType* codeArray, long int* size, long int in
       }
 
     }
-    // if (h_valid)
-    //   printf("holder is valid with %x (%d bits)\n", holder, valid_h_bits);
-    // else
-    //   printf("holder is invalid\n");
-    //
-    // printf("\n");
 
     inputLength = inputLength - 1;
   }

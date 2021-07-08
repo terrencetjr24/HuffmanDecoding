@@ -6,23 +6,11 @@ void findCounts(FILE *ogFile, long int* totalBytes, long int* totalInUncompresse
 
   // Ensure the FILE pointer is set to the beginning of the file
   fseek(ogFile, 0, SEEK_SET);
+  fread(totalBytes, sizeof(long int), 1, ogFile);
 
-  // Count the occurances of each ASCII character and increment the freqArray
-  do {
-    idx = fgetc(ogFile);
-    if (idx != EOF)
-      array[idx]++;
+  fseek(ogFile, sizeof(long int), SEEK_SET);
+  fread(totalInTopology, sizeof(long int), 1, ogFile);
 
-  } while(idx != EOF);
-
-  // Write the frequency count of each character to the count file
-  for(int i = 0; i < 256; i++)
-    {
-      fwrite(&(array[i]), sizeof(long int), 1, countFile);
-      if(array[i] != 0)
-	     distinctCharsInFile++;
-    }
-
-  // place the file pointer back at the beginning of the file
-  fseek(ogFile,0, SEEK_SET);
+  fseek(ogFile, sizeof(long int)*2, SEEK_SET);
+  fread(totalInUncompressed, sizeof(long int), 1, ogFile);
 }

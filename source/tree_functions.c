@@ -1,5 +1,32 @@
 #include "../header/tree_functions.h"
 
+TreeNode* recreateTree(FILE* ogFile, long int bytesInTopology){
+    TreeNode* retVal = NULL;
+    TreeNode* curNode = retVal;
+    int idx = 0;
+    char workingBuffer = 0x0;
+    unsigned int workingBit = 7;
+
+    // Set the head to 24 bytes into the file where the topology starts
+    fseek(ogFile, 24, SEEK_SET);
+
+    // Read through the file one byte at a time
+    while (idx < bytesInTopology){
+        workingBuffer = fgetc(ogFile);
+
+        while (workingBit > 0){
+            if (((workingBuffer >> workingBit) & 0x00) == 0x00){
+
+            }
+            else{
+            curNode =
+            }
+        }
+
+    }
+
+    return retVal;
+}
 
 TreeNode* treeCreate(FILE *treeFile, long int* freqArray, int charsUsed)
 {

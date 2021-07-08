@@ -16,7 +16,7 @@ int main(int argc, char **argv){
   strncpy(outputFileName, inputFile, strlen(inputFile) - 4);
   strcat(outputFileName, ".dec");
 
-  long int totalBytesInCompressed = 0;
+  long int totalBytesInCompressedFile = 0;
   long int totalBytesInUncompressed = 0;
   long int topologicalBytes = 0;
   long int beginningOfData = 0;
@@ -24,8 +24,6 @@ int main(int argc, char **argv){
   compressedFile = fopen(inputFile, "rb");
   findCounts(compressedFile, &totalBytesInCompressedFile, &totalBytesInUncompressed, &topologicalBytes);
   beginningOfData = (8*3) + topologicalBytes;
-
-
 
   // recreate the tree from the file
   TreeNode * tree = recreateTree(compressedFile, topologicalBytes);

@@ -1,6 +1,7 @@
 # Huffman Decoding
 - Author: Terrence Randall
 
+- *\*Unfinished\**
 ## Description:
 A project to accompany the encoding portion. Intended to be used to decompress the outputs from
 the encoding executable

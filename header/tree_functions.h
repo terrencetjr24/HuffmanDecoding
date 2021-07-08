@@ -3,6 +3,7 @@
 
 typedef struct tNode
 {
+  struct tNode * parentNode;
   struct tNode * rightChild;
   struct tNode * leftChild;
   long int frequency;
@@ -19,6 +20,8 @@ typedef struct tNode
 #include "linkedList_functions.h"
 #include "compression.h"
 
+
+TreeNode* recreateTree(FILE* ogFile, long int bytesInTopology);
 
 
 TreeNode* treeCreate(FILE *treeFile, long int * array, int charUsed);
